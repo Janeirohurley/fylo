@@ -1,0 +1,86 @@
+<div class="w-100 h-100" style="background: #1c2230; color: white">
+  <app-header />
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div
+      id="liveToast"
+      [ngClass]="{
+        toast: true,
+        show: isOnline,
+        hide: !isOnline,
+        'bg-dark': true
+      }"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+    >
+      <div class="toast-header bg-dark text-white">
+        <strong class="me-auto">Fylo</strong>
+        <small>now</small>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="toast-body">
+        {{ message }}
+      </div>
+    </div>
+  </div>
+
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div
+      id="liveToast"
+      [ngClass]="{
+        toast: true,
+        show: !isOnline,
+        hide: isOnline,
+        'bg-dark': true
+      }"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+    >
+      <div class="toast-header bg-dark text-white">
+        <strong class="me-auto">Fylo</strong>
+        <small>now</small>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="toast-body">
+        {{ message }}
+      </div>
+    </div>
+  </div>
+  <div
+    class="container row mx-auto gap-0 position-relative"
+    style="margin-top: 190px; flex-wrap: wrap; margin-bottom: 20px"
+  >
+    <h1 *ngIf="loading">Loading........</h1>
+    <div *ngIf="!loading && !exercises.length" class="col-12 text-center">
+      <h2>No exercises found.</h2>
+    </div>
+    <div
+      *ngFor="let exercise of exercises"
+      class="col-12 col-md-6 col-lg-3 p-4 rounded-2 position-relative z-3 overflow-hidden"
+      style="background: #21293c; max-height: 250px"
+    >
+      <h4 class="text-center">{{ exercise.name }}</h4>
+      <!-- Affiche le titre de l'exercice -->
+      <span><strong>Difficulty:</strong> {{ exercise.difficulty }}</span
+      ><br />
+      <span><strong>Equipment:</strong> {{ exercise.equipment }}</span
+      ><br />
+      <span><strong>Muscle:</strong> {{ exercise.muscle }}</span
+      ><br />
+      <span><strong>Instruction:</strong> {{ exercise.instructions }}</span
+      ><br />
+    </div>
+  </div>
+  <app-footer />
+</div>
