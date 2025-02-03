@@ -1,0 +1,66 @@
+$primary: #007bff;
+
+@import "../../node_modules/bootstrap/scss/_functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/utilities";
+
+$custom-colors: (
+  "custom-bg": #181e2a,
+  "custom-secondary-bg": #21293c,
+);
+
+$font-size-step: 1.2; // Facteur d'augmentation (1.2 = 20% d'augmentation par palier)
+$font-size-step-negatif: 0.8; // Facteur d'
+
+// Définir les tailles personnalisées (par exemple : une, deux, trois, ...)
+$custom-font-sizes: (
+  une: 12px,
+  deux: 12px * $font-size-step,
+  trois: 12px * $font-size-step * $font-size-step,
+  quatre: 12px * $font-size-step * $font-size-step * $font-size-step,
+  cinq: 12px * $font-size-step * $font-size-step * $font-size-step *
+    $font-size-step,
+  six: 12px * $font-size-step * $font-size-step * $font-size-step *
+    $font-size-step * $font-size-step,
+
+  une-1: 12px,
+  // Taille de base (12px)
+  deux-1: 12px * $font-size-step-negatif,
+  // Taille progressive (12px * 0.8)
+  trois-1: 12px * $font-size-step-negatif * $font-size-step-negatif,
+  // (12px * 0.8^2)
+  quatre-1: 12px * $font-size-step-negatif * $font-size-step-negatif *
+    $font-size-step-negatif,
+  // (12px * 0.8^3)
+  cinq-1: 12px * $font-size-step-negatif * $font-size-step-negatif *
+    $font-size-step-negatif * $font-size-step-negatif,
+  // (12px * 0.8^4)
+  six-1: 12px * $font-size-step-negatif * $font-size-step-negatif *
+    $font-size-step-negatif * $font-size-step-negatif * $font-size-step-negatif,
+  // (12px * 0.8^5)
+  sept-1: 12px * $font-size-step-negatif * $font-size-step-negatif *
+    $font-size-step-negatif * $font-size-step-negatif * $font-size-step-negatif *
+    $font-size-step-negatif // (12px * 0.8^6),,,,,,
+);
+
+// Définition de la classe w-max
+$custom-utilities: (
+  "width": (
+    property: width,
+    class: w,
+    values: (
+      max: max-content,
+    ),
+  ),
+);
+
+
+$utilities: map-merge($utilities, $custom-utilities);
+
+$font-sizes: map-merge($custom-font-sizes, $font-sizes);
+
+$theme-colors: map-merge($custom-colors, $theme-colors);
+// Exemple : changer la couleur principale
+@import "../../node_modules/bootstrap/scss/bootstrap";

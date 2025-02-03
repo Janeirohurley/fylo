@@ -1,0 +1,34 @@
+:root {
+  --transition-value: calc(100% + 34px);
+}
+#button-container::before,
+#button-container::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 35px;
+  height: 15px;
+  background-color: #1c2230;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+#button-container::before {
+  top: -10px; /* Positionnement du cercle du haut */
+}
+
+#button-container::after {
+  bottom: -10px; /* Positionnement du cercle du bas */
+}
+.highlight {
+  width: calc(50% - 25px);
+  height: calc(100% - 16px);
+  left: 8px;
+  transform: translateX(var(--transition-value));
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+.button-animate {
+  cursor: pointer;
+}

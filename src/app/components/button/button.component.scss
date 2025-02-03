@@ -1,0 +1,38 @@
+#button-container {
+    position: relative;
+    display: flex;
+    gap: 4px;
+    padding: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    min-width: 220px;
+  }
+  
+  /* Élément de surbrillance qui prend la taille exacte d'un bouton */
+  .highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0; // La largeur sera définie dynamiquement
+    height: 100%;
+    background: #dc3545;
+    border-radius: 8px;
+    transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
+    z-index: 0;
+  }
+  
+  .button-animate {
+    min-width: 100px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: white;
+  }
+  
+  .button-animate.active {
+    color: white;
+  }
+  
