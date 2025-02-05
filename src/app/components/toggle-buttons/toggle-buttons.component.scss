@@ -6,8 +6,8 @@
   content: "";
   position: absolute;
   left: 50%;
-  width: 35px;
-  height: 15px;
+  width: 40px;
+  height: 35px;
   background-color: #1c2230;
   border-radius: 50%;
   transform: translateX(-50%);
@@ -15,16 +15,17 @@
 }
 
 #button-container::before {
-  top: -10px; /* Positionnement du cercle du haut */
+  top: -25px; /* Positionnement du cercle du haut */
 }
 
 #button-container::after {
-  bottom: -10px; /* Positionnement du cercle du bas */
+  bottom: -25px; /* Positionnement du cercle du bas */
 }
 .highlight {
   width: calc(50% - 25px);
   height: calc(100% - 16px);
   left: 8px;
+  z-index: 4;
   transform: translateX(var(--transition-value));
   transition: transform 0.3s ease-in-out, background-color 0.3s ease;
 }
@@ -33,3 +34,37 @@
   cursor: pointer;
 }
 
+.dot{
+  width: 40px;
+  height: 30px;
+  background-color: #ffffff;
+  position: absolute;
+  z-index: 2;
+  border-radius: 5px;
+}
+
+.dot-1{
+  top: 0px;
+  right: 52%;
+  transform: skew(31deg);
+}
+
+.dot-2{
+  left: 52%;
+  transform: skew(-31deg);
+  top: 0px;
+}
+.dot-3{
+  background: #ffffff;
+  right: 52%;
+  bottom: -0.5px;
+  transform: skew(-31deg);
+  z-index: 3;
+}
+.dot-4{
+  background: #ffffff;
+  left: 52%;
+  bottom: -0.5px;
+  transform: skew(31deg);
+  z-index: 3;
+}
