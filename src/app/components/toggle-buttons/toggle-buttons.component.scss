@@ -12,7 +12,7 @@
   width: calc(50% - 25px);
   height: calc(100% - 16px);
   left: 8px;
-  z-index: 4;
+  z-index: 3;
   transform: translateX(var(--transition-value));
   transition: transform 0.3s ease-in-out, background-color 0.3s ease;
 }
