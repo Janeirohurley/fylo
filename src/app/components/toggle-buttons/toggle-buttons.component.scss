@@ -1,19 +1,6 @@
 :root {
   --transition-value: calc(100% + 34px);
 }
-#button-container::before,
-#button-container::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  width: 35px;
-  height: 15px;
-  background-color: #1c2230;
-  border-radius: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
 #button-container::before {
   top: -10px; /* Positionnement du cercle du haut */
 }
@@ -32,4 +19,18 @@
 .button-animate {
   cursor: pointer;
 }
-
+.motif-top{
+  position: absolute;
+  width: 70px;
+  top: -1px;
+  left: 40%;
+  z-index: 3;
+}
+.motif-bottom{
+  position: absolute;
+  width: 70px;
+  bottom: 0px;
+  left: 40%;
+  z-index: 3;
+  transform: rotate(180deg);
+}
