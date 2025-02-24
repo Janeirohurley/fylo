@@ -1,0 +1,108 @@
+<div class="container-fluid p-0">
+  <div class="video-wrapper" #videoWrapper>
+    <div class="infomation" *ngIf="!isPlaying">{{ fileTitle }}</div>
+    <div class="rewind-time" (dblclick)="rewind($event)"></div>
+    <div class="forward-time" (dbclick)="fastForward($event)"></div>
+    <video
+      (click)="togglePlay($event)"
+      #videoPlayer
+      class="w-100"
+      [src]="'assets/videos/justin.mp4'"
+    ></video>
+    <div class="mp3-placeholder" *ngIf="!isVideo">
+      <img src="assets/images/placeholder.jpg" alt="" />
+    </div>
+    <div class="controls text-center mt-3" *ngIf="isControlsVisible">
+      <div
+        class="progress-bar-container"
+        #progressBar
+        (mousedown)="startDrag($event)"
+      >
+        <div class="progress-bar" [style.width.%]="videoProgress"></div>
+        <div
+          class="progress-handle"
+          [style.left.%]="videoProgress"
+          (mousedown)="startDrag($event, true)"
+        ></div>
+      </div>
+      <div
+        class="options-speed"
+        [style.display]="isvisibleOptionsSpeed ? 'flex' : 'none'"
+      >
+        <div
+          class="speed"
+          *ngFor="let speed of speedOptions"
+          (click)="setPlaybackSpeed(speed)"
+          [ngClass]="{ 'active-speed': speed === currentSpeed }"
+        >
+          x{{ speed }}
+        </div>
+      </div>
+      <div class="volume-options">
+        <button class="btn d-flex mx-1" (click)="toggleMute($event)">
+          <img
+            [src]="
+              isMuted
+                ? 'assets/icons/volume-mute.svg'
+                : 'assets/icons/volume-up.svg'
+            "
+            alt="Mute/Unmute"
+            class="control-icon"
+          />
+        </button>
+        <div class="volume-container" #volumeBar (click)="setVolume($event)">
+          <div
+            class="volume-progress"
+            [style.width.%]="volumeLevel * 100"
+          ></div>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn mx-2" (click)="rewind($event)">
+          <img
+            src="assets/icons/rewind.svg"
+            alt="Rewind"
+            class="control-icon"
+          />
+        </button>
+        <button class="btn mx-2" (click)="togglePlay($event)">
+          <img
+            [src]="
+              isPlaying ? 'assets/icons/pause.svg' : 'assets/icons/play.svg'
+            "
+            alt="Play/Pause"
+            class="control-icon play-pause"
+          />
+        </button>
+        <button class="btn mx-2" (click)="fastForward($event)">
+          <img
+            src="assets/icons/fast-forward.svg"
+            alt="Fast Forward"
+            class="control-icon"
+          />
+        </button>
+      </div>
+
+      <div>
+        <button class="btn mx-2" (click)="toggleFullscreen($event)">
+          <img
+            src="assets/icons/fullscreen.svg"
+            alt="Fullscreen"
+            class="control-icon same"
+          />
+        </button>
+
+        <button class="btn mx-2" (click)="toggleSettings()">
+          <img
+            src="assets/icons/gear.svg"
+            alt="gear"
+            class="control-icon same"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barre de contrôles personnalisée -->
+</div>
